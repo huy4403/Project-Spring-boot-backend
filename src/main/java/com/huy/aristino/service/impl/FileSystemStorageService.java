@@ -16,7 +16,7 @@ public class FileSystemStorageService implements StorageService {
     private final Path rootLocation;
 
     public FileSystemStorageService() {
-        this.rootLocation = Paths.get("src/main/resources/static/imageProducts");
+        this.rootLocation = Paths.get("src/main/resources/static/imgProducts");
     }
     @Override
     public void init() {
