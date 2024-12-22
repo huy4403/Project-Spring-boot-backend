@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang chủ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" rel="stylesheet"> <!-- Thêm Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+<div id="message" class="alert alert-danger text-center" style="display: none"></div>
+<header id="header">
+    <nav class="navbar navbar-expand-lg" id="navHeader">
+        <div class="container-fluid">
+            <!-- Khu vực logo hoặc tiêu đề -->
+            <a class="navbar-brand" href="#">Aristino</a>
+
+            <!-- Nút hamburger menu (cho màn hình nhỏ) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Khu vực menu -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+
+                <!-- Menu bên trái -->
+                <ul class="navbar-nav mx-auto">
+                    <form class="search-form">
+                        <input type="text" name="noidung" class="search-content" size="50px" placeholder="Tìm kiếm sản phẩm">
+                        <button onclick="showProduct()" class="search"><i class="fa-solid fa-magnifying-glass" style="color: black;"></i></button>
+                    </form>
+                </ul>
+
+                <!-- Khu vực menu bên phải -->
+                <ul class="navbar-nav" id="navbar">
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="showCart()"><i class="fa-solid fa-cart-shopping" style="font-size: 20px"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Đơn hàng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="logout()">Đăng xuất</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="banner-container">
+        <div class="banner-slide active">
+            <a href="https://aristino.com/BST-Aristino-ban-hoa-ca-di-san-Symphony-of-Heritage.html" target="_blank"><img src="../assets/banner1.jpg"></a>
+        </div>
+        <div class="banner-slide">
+            <a href="https://aristino.com/BST-Horizon-Light-Up.html" target="_blank"><img src="../assets/banner2.jpg"></a>
+        </div>
+        <div class="banner-slide">
+            <img src="../assets/banner3.jpg" alt="Banner 3">
+        </div>
+        <div class="banner-slide">
+            <a href="https://aristino.com/BST-Aristino-nhat-thi-nhat-hoa.html" target="_blank"><img src="../assets/banner4.jpg"></a>
+        </div>
+        <div class="banner-slide">
+            <a href="https://aristino.com/BST-Soaring-to-success.html" target="_blank"><img src="../assets/banner5.jpg"></a>
+        </div>
+    </div>
+
+    <!-- Dialog and Backdrop -->
+    <div id="cartBackdrop" class="backdrop" onclick="closeCart()">
+        <div id="cartDialog" class="cart-dialog" onclick="event.stopPropagation()">
+            <div class="cart-dialog-content">
+                <div class="cart-dialog-title" id="title-cart" style="display: flex; justify-content: space-between; align-items: center;">
+                    <h2>Giỏ hàng</h2>
+                    <h3 style="font-size: 20px" onclick="closeCart()">X</h3>
+                </div>
+
+                <div id="cartItems">
+                    <p style="text-align: center; background: bisque;">Không có sản phầm nào</p>
+                </div>
+                <div id="cartTotal">
+                    <div id="cartTotal-title">
+                        <p>Tổng tiền hàng</p>
+                        <p>Phí vận chuyển</p>
+                        <p>Giảm giá</p>
+                        <p class="cartTotal">Tổng đơn hàng</p>
+                    </div>
+
+                    <div id="cartTotal-value">
+                        <p>100000000</p>
+                        <p>100000000</p>
+                        <p>100000000</p>
+                        <p class="cartTotal-value">1000000000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <h2 style="text-align: center;">Sản phẩm</h2>
+
+</main>
+<footer>
+    <div class="logo2">
+        <img src="../assets/logobottom.png" alt="">
+    </div>
+    <div class="address">
+        <h3>HỆ THỐNG SHOWROOM</h3>
+        <a href="https://maps.app.goo.gl/z1eStFFpQ9koDYmC8" target="_blank"><i class="fa-solid fa-location-dot"></i>
+            Showroom
+            Aristino
+            - Vincom Bắc Từ Liêm 234 Phạm Văn
+            Đồng, Bắc Từ Liêm, Hà Nội</a>
+        <a href="https://maps.app.goo.gl/2CvFCfu4BFZJ96Es5" target="_blank"><i class="fa-solid fa-location-dot"></i>
+            Showroom
+            Aristino 379 Quang Trung, Hà Đông, Hà Nội</a>
+        <a href="https://maps.app.goo.gl/2NS4BYytWR8Uxd687" target="_blank"><i class="fa-solid fa-location-dot"></i>
+            Showroom
+            Aristino 84 Nguyễn Trãi - Hồ Chí Minh</a>
+        <a href="tel:18006226"><i class="fa-solid fa-phone"></i> 18006226</a>
+        <a href="mailto:cs@kgvietnam.com"><i class="fa-solid fa-envelope"></i> cs@kgvietnam.com</a>
+    </div>
+    <div class="icon">
+        <ul>
+            <h3>THEO DÕI CHÚNG TÔI</h3>
+            <li>
+                <a href="https://shopee.vn/aristino_official_store" target="_blank"><i class="fa-brands fa-shopify fa-2xl"></i></a>
+                <a href="https://www.tiktok.com/discover/aristino" target="_blank"><i class="fa-brands fa-tiktok fa-2xl"></i></a>
+                <a href="https://www.facebook.com/ilovearistino/" target="_blank"><i class="fa-brands fa-square-facebook fa-2xl"></i></a>
+                <a href="https://www.instagram.com/aristino_official/" target="_blank"><i class="fa-brands fa-instagram fa-2xl"></i></a>
+                <a href="https://www.youtube.com/channel/UCxLkYQ3yrgqxGRzWO-I2PZg" target="_blank"><i class="fa-brands fa-youtube fa-2xl"></i></a>
+            </li>
+        </ul>
+    </div>
+    <p class="copyright">© 2022 K&G Vietnam. All Rights Reserved</p>
+</footer>
+<script src="https://kit.fontawesome.com/7a215b7bf9.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script src="../js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,274 @@
+#navHeader {
+    background: transparent;
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    top: 0px;
+    transition: top 0.3s;
+    position: fixed;
+    z-index: 999;
+    .nav-link{
+        color: white;
+    }
+    .nav-link:hover{
+        text-decoration: underline;
+    }
+    .navbar-brand {
+        color: white;
+        font-family: Unispace;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .navbar-brand:hover{
+        text-decoration: underline;
+    }
+
+    .search-content{
+        border-radius: 5px;
+    }
+    .search {
+        border-radius: 5px;
+    }
+    .nav-link{
+        cursor: pointer;
+    }
+}
+.banner-container {
+     position: relative;
+     max-width: 100%;
+     height: 500px;
+     overflow: hidden;
+     margin-bottom: 30px;
+     border-radius: 8px;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+ }
+
+.banner-slide {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.banner-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.banner-slide.active {
+    display: block;
+    animation: fade 1s ease-in-out;
+}
+
+main{
+    margin-top: 55px;
+
+    /* Backdrop */
+    .backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        display: none; /* Initially hidden */
+        z-index: 999; /* Behind the dialog */
+    }
+
+    /* Show the backdrop when active */
+    .backdrop.open {
+        display: block;
+    }
+
+    /* Dialog */
+    .cart-dialog {
+        position: fixed;
+        top: 0;
+        right: -600px; /* Initially hidden */
+        width: 600px;
+        height: 100%;
+        background-color: #fff;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+        transition: right 0.8s ease;
+        z-index: 1000; /* Above the backdrop */
+        overflow-y: auto;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        border-left: 1px solid gray;
+    }@media (max-width: 910px) {
+    .cart-dialog {
+        width: 100%; /* Make the cart take up the full width */
+        #cartTotal{
+            width: 100%;
+        }
+        #cartTotal{
+            width: 100%;
+        }
+    }
+}
+
+    .cart-dialog.open {
+        right: 0;
+    }
+
+    .cart-dialog-content {
+        padding: 20px;
+        flex-grow: 1;
+        overflow-y: auto;
+    }
+    #cartTotal {
+        z-index: 999;
+        position: fixed;
+        bottom: 0;
+        background: white;
+        width: 600px;
+        height: 250px;
+        border: gray;
+        right: 0;
+        display: flex;
+        border-top: 1px solid gray;
+        border-right: 1px solid gray;
+        justify-content: space-between; /* Đảm bảo phân phối không gian */
+        padding: 10px; /* Tùy chọn để tạo khoảng cách */
+    }
+    #cartTotal-title {
+        flex-direction: column;
+    }
+
+    #cartTotal-title p {
+        color: gray;
+        margin-top: 30px;
+    }
+
+    #cartTotal-title .cartTotal {
+        font-size: 20px;
+        color: black;
+        font-weight: bold;
+    }
+
+    #cartTotal-value {
+        flex-direction: column;
+        justify-content: flex-end; /* Căn các giá trị ở phía dưới */
+        align-items: flex-end; /* Căn các giá trị sang bên phải */
+        text-align: right; /* Căn lề bên phải cho nội dung */
+    }
+
+    #cartTotal-value p {
+        color: gray;
+        margin-top: 30px;
+    }
+
+    #cartTotal-value .cartTotal-value {
+        font-size: 20px;
+        color: black;
+        font-weight: bold;
+    }
+
+
+    #title-cart{
+        h3{
+            cursor: pointer;
+        }
+    }
+    #cartItems {
+        flex: 1; /* Chiếm toàn bộ không gian có sẵn giữa title và cartTotal */
+        overflow-y: auto; /* Cuộn khi nội dung vượt quá chiều cao */
+        margin-bottom: 220px; /* Tùy chọn khoảng cách */
+    }
+}
+
+footer{
+    width: 100%;
+    height: 300px;
+    background: #212121;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    gap: 170px;
+    color: white;
+    position: relative;
+}
+/* Ẩn footer trên màn hình có chiều rộng nhỏ hơn hoặc bằng 768px */
+@media (max-width: 910px) {
+    footer {
+        display: none;
+    }
+}
+.logo2 img{
+    width: 200px;
+    user-select: none;
+}
+.address{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.address a{
+    color: white;
+    padding-top: 5px;
+}
+.address h3{
+    text-align: center;
+    font-weight: 700;
+    font-size: 21px;
+    color: white;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #fff;
+    display: inline-block;
+}
+footer .icon ul li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.icon ul li{
+    display: flex;
+    list-style: none;
+}
+.icon ul h3{
+    margin-bottom: 20px;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 14px;
+    color: white;
+}
+footer a {
+    text-decoration: none; /* Removes the underline from links */
+    color: white; /* Sets the color of the text and icons to white */
+}
+
+footer a:hover {
+    color: white; /* Ensures the color stays white on hover */
+}
+/*  */
+.copyright{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 11px;
+    font-family: 'Calibri';
+    color: white;
+}
+/*  */
+.inbox{
+    width: 60px;
+    position: fixed;
+    border-radius: 99%;
+    bottom: 40px;
+    right: 20px;
+    z-index: 999;
+    transition: transform 0.3s ease-out;
+    color: white;
+}
+.inbox:hover{
+    transform: scale(1.2);
+    color: white;
+}
+/*  */
+hr{
+    margin: 50px;
+}
