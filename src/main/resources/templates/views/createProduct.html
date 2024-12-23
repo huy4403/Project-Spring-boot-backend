@@ -10,30 +10,35 @@
 </head>
 
 <body>
-<div class="container mt-5">
-    <h2 class="mb-4">Thêm Sản Phẩm</h2>
+<div class="container mt-5" id="container">
+    <h2 class="mb-4" style="text-align: center">Thêm Sản Phẩm</h2>
     <form id="productForm">
         <!-- Tên sản phẩm -->
+        <div id = "messageError" style="display: none"> </div>
         <div class="mb-3">
             <label for="name" class="form-label">Tên sản phẩm</label>
+            <div id = "nameME" style="display: none"></div>
             <input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên sản phẩm" required>
         </div>
 
         <!-- Số lượng -->
         <div class="mb-3">
             <label for="quantity" class="form-label">Số lượng</label>
+            <div id = "quantityME" style="display: none"></div>
             <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Nhập số lượng" required>
         </div>
 
         <!-- Giá nhập -->
         <div class="mb-3">
-            <label for="importPrice" class="form-label">Giá nhập</label>
+            <label for="importPrice" class="form-label">Giá nhập(VND)</label>
+            <div id = "importPriceME" style="display: none"></div>
             <input type="number" class="form-control" id="importPrice" name="importPrice" placeholder="Nhập giá nhập" required>
         </div>
 
         <!-- Giá bán -->
         <div class="mb-3">
-            <label for="price" class="form-label">Giá bán</label>
+            <label for="price" class="form-label">Giá bán(VND)</label>
+            <div id = "priceME" style="display: none"></div>
             <input type="number" class="form-control" id="price" name="price" placeholder="Nhập giá bán" required>
         </div>
 
@@ -54,9 +59,6 @@
             <label for="category" class="form-label">Danh mục</label>
             <select class="form-select" id="category" name="category" required>
                 <option value="">Chọn danh mục</option>
-                <option value="1">Danh mục 1</option>
-                <option value="2">Danh mục 2</option>
-                <!-- Add more categories dynamically from the database -->
             </select>
         </div>
 
@@ -72,3 +74,10 @@
 </body>
 
 </html>
+<style>
+    #container{
+        label{
+            font-weight: bold;
+        }
+    }
+</style>

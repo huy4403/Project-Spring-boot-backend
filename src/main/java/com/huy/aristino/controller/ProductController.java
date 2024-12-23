@@ -30,8 +30,9 @@ public class ProductController {
                                            @RequestParam("file") MultipartFile file) {
         boolean existProduct = productService.existsProductByName(product.getName());
         if (existProduct) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(Map.of("message", "Sản phẩm đã tồn tại rồi"));
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("message", "Sản phẩm đã tồn tại");
+            return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
         }
         this.storageService.store(file);
         product.setImg(file.getOriginalFilename());
