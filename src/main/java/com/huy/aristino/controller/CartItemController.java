@@ -8,7 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @AllArgsConstructor
 @CrossOrigin
@@ -36,8 +38,13 @@ public class CartItemController {
     }
 
     @GetMapping("get-all")
-    public ResponseEntity<List<CartItem>> getCartItems(@RequestParam("cartId") int cartId) {
+    public ResponseEntity<?> getCartItems(@RequestParam("cartId") int cartId) {
         List<CartItem> cartItems = cartItemService.getCartItemsByCartId(cartId);
+        if(cartItems.isEmpty()) {
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("message", "Giỏ hàng đang trống");
+            return new ResponseEntity<>(errorResponse,HttpStatus.NOT_FOUND);
+        }
         return new ResponseEntity<>(cartItems, HttpStatus.OK);
     }
 

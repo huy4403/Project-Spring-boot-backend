@@ -35,7 +35,7 @@ public class ProductServiceImpl implements ProductService {
         if(product.getPrice() != -1){
             existProduct.setPrice(product.getPrice());
         }
-        if(product.getImg() != null){
+        if(product.getImg() != null && !(product.getImg().isEmpty())){
             existProduct.setImg(product.getImg());
         }
         if(product.getDescription() != null){
@@ -86,5 +86,10 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> findByNameContaining(String name){
         List<Product> products = productRepository.findByNameContaining(name);
         return products;
+    }
+
+    @Override
+    public Boolean existsProductByNameDiffId(String name, int id) {
+        return productRepository.existsProductByNameDiffId(name, id);
     }
 }

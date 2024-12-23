@@ -41,7 +41,17 @@ public class ProductController {
     }
 
     @PutMapping("update/{id}")
-    public ResponseEntity<?> updateProduct(@PathVariable("id") int id, @RequestBody Product product) {
+    public ResponseEntity<?> updateProduct(@PathVariable("id") int id, @ModelAttribute Product product, @RequestParam(value = "file", required = false) MultipartFile file) {
+        boolean existProductByNameDiffId = productService.existsProductByNameDiffId(product.getName(), id);
+        if (existProductByNameDiffId) {
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("message", product.getName() + " bị trùng tên với sản phẩm khác rồi");
+            return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+        }
+        if(file != null && !file.isEmpty()){
+            this.storageService.store(file);
+            product.setImg(file.getOriginalFilename());
+        }
         product.setId(id);
         Product updateProduct = productService.updateProduct(product);
         return new ResponseEntity<>(updateProduct, HttpStatus.OK);

@@ -24,4 +24,6 @@ public interface ProductService {
     List<Product> findProductByCategory(Category category);
 
     List<Product> findByNameContaining(String name);
+
+    Boolean existsProductByNameDiffId(String name, int id);
 }
